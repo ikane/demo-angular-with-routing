@@ -17,4 +17,8 @@ export class DataService {
   getDevices(): Observable<Device[]> {
     return this.http.get<Device[]>('http://localhost:8080/devices');
   }
+
+  getDevice(deviceId: number): Observable<Device> {
+    return this.http.get<Device>('http://localhost:8080/devices/' + deviceId);
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../device';
 import { DataService } from '../data.service';
+import { MatDialog } from '@angular/material';
+import { DeviceDetailDialogComponent } from '../device-detail-dialog/device-detail-dialog.component';
 
 @Component({
   selector: 'app-device',
@@ -11,7 +13,10 @@ export class DeviceComponent implements OnInit {
 
   devices: Device[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    public dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
     this.dataService.getDevices().subscribe(
@@ -20,6 +25,14 @@ export class DeviceComponent implements OnInit {
         this.devices = data;
       }
     );
+  }
+
+  openDialog(deviceId) {
+    this.dialog.open(DeviceDetailDialogComponent, {
+      data: {
+        'deviceId': deviceId
+      }
+    });
   }
 
 }
