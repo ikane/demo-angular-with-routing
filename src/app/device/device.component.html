@@ -1,0 +1,24 @@
+ <!-- primeNG table -->
+ <p-table [value]="devices" [paginator]="true" [rows]="5">
+    
+  <ng-template pTemplate="header">
+      <tr>
+          <th>ID</th>
+          <th>SN</th>
+          <th>Group</th>
+          <th>Family</th>
+          <th>Action</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-device>
+      <tr>
+          <td>{{device.id}}</td>
+          <td>{{device.sn}}</td>
+          <td>{{device.groupname}}</td>
+          <td>{{device.family}}</td>
+          <td>
+              <a routerLink='/detail/{{device.id}}'>View</a>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>

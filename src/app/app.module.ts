@@ -6,10 +6,14 @@ import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DeviceComponent } from './device/device.component';
+import { DeviceDetailComponent } from './device-detail/device-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeviceComponent,
+    DeviceDetailComponent
   ],
   imports: [
     BrowserModule,
