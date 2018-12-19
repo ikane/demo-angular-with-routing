@@ -21,4 +21,8 @@ export class DataService {
   getDevice(deviceId: number): Observable<Device> {
     return this.http.get<Device>('http://localhost:8080/devices/' + deviceId);
   }
+
+  saveDevice(device: Device) {
+    return this.http.post('http://localhost:8080/devices/', device);
+  }
 }
