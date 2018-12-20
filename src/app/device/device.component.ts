@@ -12,6 +12,7 @@ import { DeviceDetailDialogComponent } from '../device-detail-dialog/device-deta
 export class DeviceComponent implements OnInit {
 
   devices: Device[] = [];
+  device: Device = new Device();
 
   constructor(
     private dataService: DataService,
@@ -32,6 +33,13 @@ export class DeviceComponent implements OnInit {
       data: {
         'deviceId': deviceId
       }
+    });
+  }
+
+  saveDevice() {
+    console.log(this.device);
+    this.dataService.saveDevice(this.device).subscribe(response => {
+      console.log(response);
     });
   }
 

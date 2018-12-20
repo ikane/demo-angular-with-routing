@@ -25,3 +25,29 @@
       </tr>
   </ng-template>
 </p-table>
+
+<!-- 
+<app-device-form></app-device-form>
+-->
+
+<form #deviceForm="ngForm">
+        <fieldset class="form-group">
+                <legend>Create</legend>
+        <div class="form-group">
+          <label for="sn">SN</label>
+          <input type="text" class="form-control" id="sn" required [(ngModel)]="device.sn" name="sn">
+          TODO: remove this: {{device.sn}}
+        </div>
+        <div class="form-group">
+            <label for="family">Family</label>
+            <input type="text" class="form-control" id="family" [(ngModel)]="device.family" name="family">
+        </div>
+        <div class="form-group">
+            <label for="groupname">Group</label>
+            <input type="text" class="form-control" id="groupname" [(ngModel)]="device.groupname" name="groupname">
+        </div>
+      
+        <button type="submit" class="btn btn-success" (click)="saveDevice(); deviceForm.reset()">Submit</button>
+    </fieldset>
+      </form>
+   
